@@ -1,0 +1,27 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="GD-Local-History"
+config/description="An editor plugin for Godot that contains a local history panel. This shows recent changes to any files that have been saved recently, while also allowing you to refresh and delete entries."
+config/version="1.0"
+config/features=PackedStringArray("4.3", "Forward Plus")
+config/icon="res://icon.svg"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gd_local_history/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://addons/gd_local_history/ui/": "green"
+}
