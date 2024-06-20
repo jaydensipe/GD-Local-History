@@ -10,7 +10,7 @@ var _tree_root: TreeItem
 
 func _ready() -> void:
 	var _tree_root: TreeItem = tree.create_item()
-	var directories: PackedStringArray = DirAccess.get_directories_at("res://.gd_local_history")
+	var directories: PackedStringArray = DirAccess.get_directories_at(GDLocalHistory.save_file_path)
 	for directory: String in directories:
 		create_file_tree_item(directory)
 
@@ -31,11 +31,11 @@ func _on_tree_item_selected() -> void:
 		code_edit.text = metadata
 		return
 
-	var folder_path: String = "res://.gd_local_history/%s" % selected_tree_item.get_text(0)
+	var folder_path: String = "%s/%s" % [GDLocalHistory.save_file_path, selected_tree_item.get_text(0)]
 	_refresh_tree_item(selected_tree_item, folder_path)
 
 func _on_tree_button_clicked(item: TreeItem, column: int, id: int, mouse_button_index: int) -> void:
-	var folder_path: String = "res://.gd_local_history/%s" % item.get_text(0)
+	var folder_path: String = "%s/%s" % [GDLocalHistory.save_file_path, item.get_text(0)]
 	match (id):
 		1:
 			_clear_tree_item(item, folder_path, true)
@@ -47,7 +47,7 @@ func _on_tree_button_clicked(item: TreeItem, column: int, id: int, mouse_button_
 func _clear_tree_item(tree_item: TreeItem, folder_path: String = "", delete_files: bool = false) -> void:
 	if (delete_files):
 		for source_code_file_name: String in DirAccess.get_files_at(folder_path):
-			DirAccess.remove_absolute(folder_path + "/%s" % source_code_file_name)
+			DirAccess.remove_absolute("%s/%s" % [folder_path, source_code_file_name])
 		DirAccess.remove_absolute(folder_path)
 		tree_item.free()
 	else:
@@ -59,4 +59,4 @@ func _refresh_tree_item(tree_item: TreeItem, folder_path: String) -> void:
 	for source_code_file_name: String in DirAccess.get_files_at(folder_path):
 		var txt_child: TreeItem = tree_item.create_child()
 		txt_child.set_text(0, source_code_file_name)
-		txt_child.set_metadata(0, FileAccess.open(folder_path + "/%s" % source_code_file_name, FileAccess.READ).get_as_text())
+		txt_child.set_metadata(0, FileAccess.open("%s/%s" % [folder_path, source_code_file_name], FileAccess.READ).get_as_text())
