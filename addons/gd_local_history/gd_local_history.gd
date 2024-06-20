@@ -19,7 +19,7 @@ func _enter_tree() -> void:
 		ProjectSettings.set_setting(_allow_global_directory, false)
 	ProjectSettings.set_initial_value(_allow_global_directory, false)
 	ProjectSettings.set_restart_if_changed(_allow_global_directory, true)
-	var _global_directory_property_info = {
+	var _global_directory_property_info: Dictionary = {
 		"name": _allow_global_directory,
 		"type": TYPE_BOOL
 	}
