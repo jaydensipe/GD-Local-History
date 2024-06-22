@@ -24,7 +24,7 @@
 <p><i>*Advanced Settings must be enabled.</i></p>
 <ul>
  <li><b>Allow Global Directory*: This allows the use of global directories when picking a file path in the option below.</b></li>
- <li><b>Save File Path:</b> Specifies location to store previous script text files.</li>
+ <li><b>Save File Path:</b> Specifies location to store previous script text files (defaults to .gd_local_history in res://).</li>
 </ul>
 
 <br/>
