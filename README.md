@@ -14,9 +14,8 @@
 <br/>
 
 <h2>Overview 📌</h2>
-<p>Similar to the feature found in [Visual Studio Code](https://code.visualstudio.com/updates/v1_66#_local-history) (and many other IDEs), GD Local History keeps a snapshot of each previous version of a script (upon saving that script with changes), in the event you need to view past iterations.</p>
-> [!NOTE]  
-> Upon activating the plugin, it is advised to add the specified save file path folder to your .gitignore (default is .gd_local_history)
+<p>Similar to the feature found in <a href="https://code.visualstudio.com/updates/v1_66#_local-history"> Visual Studio Code</a> (and many other IDEs), GD Local History keeps a snapshot of each previous version of a script (upon saving that script with changes), in the event you need to view past iterations.</p>
+<p><b>🎯 Upon activating the plugin, it is advised to add the specified save file path folder to your .gitignore (default is .gd_local_history)</b></p>
 
 <br/>
 
