@@ -3,7 +3,7 @@
 </div>
 <img src="https://github.com/jaydensipe/GD-Local-History/assets/47132280/b65a93e1-3348-4672-870b-9032d932415e"/>
 <br/>
-<h3 align="center">Currently supports: <b><i>Godot 4.3</i></b></h3>
+<h3 align="center">✨ Currently supports: <b><i>Godot 4.3</i></b></h3>
 
 <h2>Features 📃</h2>
 <ul>
