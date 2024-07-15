@@ -15,6 +15,9 @@ func _ready() -> void:
 		create_file_tree_item(directory)
 
 func create_file_tree_item(file_name: String) -> void:
+	# Prevents adding folders that do not end with gd, for saftey.
+	if (file_name.right(2) != &"gd"): return
+
 	var child: TreeItem = tree.create_item(_tree_root)
 	child.set_text(0, file_name)
 	child.set_custom_color(0, Color.WHITE_SMOKE)
