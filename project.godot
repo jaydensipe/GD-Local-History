@@ -12,7 +12,7 @@ config_version=5
 
 config/name="GD-Local-History"
 config/description="An editor plugin for Godot that contains a local history panel. This shows recent changes to any files that have been saved recently, while also allowing you to refresh and delete entries."
-config/version="1.0"
+config/version="1.2"
 config/tags=PackedStringArray("plugin")
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
