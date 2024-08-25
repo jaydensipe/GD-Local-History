@@ -7,6 +7,8 @@ class_name LocalHistoryPanel
 const RELOAD = preload("res://addons/gd_local_history/ui/reload.svg")
 const REMOVE = preload("res://addons/gd_local_history/ui/remove.svg")
 var _tree_root: TreeItem
+var _treef_root: TreeItem
+var _previous_scroll_value: int = 0
 
 func _ready() -> void:
 	var _tree_root: TreeItem = tree.create_item()
@@ -15,7 +17,7 @@ func _ready() -> void:
 		create_file_tree_item(directory)
 
 func create_file_tree_item(file_name: String) -> void:
-	# Prevents adding folders that do not end with gd, for saftey.
+	# Prevents adding files that do not end with .gd, for saftey
 	if (file_name.right(2) != &"gd"): return
 
 	var child: TreeItem = tree.create_item(_tree_root)
@@ -30,8 +32,11 @@ func create_file_tree_item(file_name: String) -> void:
 func _on_tree_item_selected() -> void:
 	var selected_tree_item: TreeItem = tree.get_selected()
 	var metadata: Variant = selected_tree_item.get_metadata(0)
+	_previous_scroll_value = code_edit.scroll_vertical
+
 	if (metadata != null):
 		code_edit.text = metadata
+		code_edit.scroll_vertical = _previous_scroll_value
 		return
 
 	var folder_path: String = "%s/%s" % [GDLocalHistory.save_file_path, selected_tree_item.get_text(0)]
@@ -49,9 +54,7 @@ func _on_tree_button_clicked(item: TreeItem, column: int, id: int, mouse_button_
 
 func _clear_tree_item(tree_item: TreeItem, folder_path: String = "", delete_files: bool = false) -> void:
 	if (delete_files):
-		for source_code_file_name: String in DirAccess.get_files_at(folder_path):
-			DirAccess.remove_absolute("%s/%s" % [folder_path, source_code_file_name])
-		DirAccess.remove_absolute(folder_path)
+		OS.move_to_trash(ProjectSettings.globalize_path(folder_path))
 		tree_item.free()
 	else:
 		for child: TreeItem in tree_item.get_children():
@@ -59,6 +62,7 @@ func _clear_tree_item(tree_item: TreeItem, folder_path: String = "", delete_file
 
 func _refresh_tree_item(tree_item: TreeItem, folder_path: String) -> void:
 	_clear_tree_item(tree_item)
+
 	for source_code_file_name: String in DirAccess.get_files_at(folder_path):
 		var txt_child: TreeItem = tree_item.create_child()
 		txt_child.set_text(0, source_code_file_name)
