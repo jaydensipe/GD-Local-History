@@ -31,10 +31,16 @@
 <br/>
 
 <h2>Download & Installation 🚀</h2>
-<h3>A.</h3> TODO: Download from Godot Asset Store
+<h3>A.</h3> 
+<ol>
+ <li>Search "GD Local History" in Godot Asset Lib and install.</li>
+ <li>Enable plugin and enjoy!</li>
+ <li><b>Recommended</b>: Add save file path (default is .gd_local_history/) to your .gitignore. 🎯</li>
+</ol>
 <h3>B.</h3>
 <ol>
  <li>Download from main or <a href="https://github.com/jaydensipe/GD-Local-History/releases">latest release</a>.</li>
  <li>Drag the addons folder into your Godot project.</li>
- <li>Enjoy!</li>
+ <li>Enable plugin and enjoy!</li>
+ <li><b>Recommended</b>: Add save file path (default is .gd_local_history/) to your .gitignore. 🎯</li>
 </ol>
