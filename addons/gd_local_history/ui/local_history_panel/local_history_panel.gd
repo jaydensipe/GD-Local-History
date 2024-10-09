@@ -7,7 +7,6 @@ class_name LocalHistoryPanel
 const RELOAD = preload("res://addons/gd_local_history/ui/reload.svg")
 const REMOVE = preload("res://addons/gd_local_history/ui/remove.svg")
 var _tree_root: TreeItem
-var _treef_root: TreeItem
 var _previous_scroll_value: int = 0
 
 func _ready() -> void:
