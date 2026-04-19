@@ -1,7 +1,7 @@
 <div align="center">
  <img height="200" src="icon.svg" width="200"/>
 </div>
-<img width="3054" height="697" alt="image" src="https://github.com/user-attachments/assets/389b8220-6810-4402-9abe-ad5184bd67ca" />
+<img src="https://github.com/user-attachments/assets/389b8220-6810-4402-9abe-ad5184bd67ca" />
 <br/>
 <h3 align="center">✨ Currently supports: <b><i>Godot 4.6+</i></b></h3>
 
